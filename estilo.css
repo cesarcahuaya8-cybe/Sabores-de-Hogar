@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="./estilo.css">
 /* =========================================================
    1. CONFIGURACIÓN GENERAL Y FUENTES (ESTILO RÚSTICO HOGAREÑO)
    ========================================================= */
@@ -10,7 +9,7 @@
 }
 
 body {
-    background-color: #141312; /* Fondo carbón cálido elegante */
+    background-color: #141312; 
     color: #f4f1ea;
     padding: 20px;
     display: flex;
@@ -19,11 +18,10 @@ body {
     overflow-x: hidden;
 }
 
-/* Contenedor principal que enmarca todo el sitio */
 .marco {
     max-width: 1200px;
     width: 100%;
-    background: #1e1b18; /* Tono tierra acogedor */
+    background: #1e1b18; 
     padding: 30px;
     border-radius: 16px;
     border: 1px solid #2e2824;
@@ -39,7 +37,7 @@ body {
     font-family: 'Cinzel', serif !important;
     font-weight: 800;
     font-size: 3.4rem;
-    color: #b34724; /* Color Ladrillo pedido por el cliente */
+    color: #b34724; 
     letter-spacing: 1px;
     margin-bottom: 5px;
     text-align: center;
@@ -63,7 +61,7 @@ body {
     font-size: 1.3rem;
 }
 
-/* --- HEADER Y LOGO DE 240PX (BORDE FINO CREMA) --- */
+/* --- LOGO DE 240PX CON BORDE FINO CREMA --- */
 .header {
     display: flex;
     flex-direction: column;
@@ -79,7 +77,7 @@ body {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 25px;
-    border: 2px solid #e3dac9; /* Borde crema sutil, nada de discoteca */
+    border: 2px solid #e3dac9; 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); 
     transition: transform 0.3s ease;
 }
@@ -149,7 +147,6 @@ body {
 .plato-card:hover .btn-agregar { color: #b34724; }
 .btn-agregar:hover { transform: scale(1.1); }
 
-/* Bloque informativo inferior */
 .seccion-info {
     margin-top: 40px;
     padding: 20px;
@@ -184,12 +181,10 @@ body {
 .input-contenedor-rustico input, .input-contenedor-rustico textarea { width: 100%; padding: 10px; background: #26211d; color: #fff; border: 1px solid #4a3e36; border-radius: 6px; }
 .input-contenedor-rustico textarea { height: 60px; resize: none; }
 
-/* Modal dinámico del QR de pago */
 .qr-pago-box { background: #211c19; border: 1px dashed #b34724; padding: 15px; border-radius: 8px; text-align: center; display: none; }
 .img-qr-rustica { width: 140px; height: 140px; border: 4px solid #fff; margin: 10px 0; }
 .btn-rustico-verde { background: #27ae60; color: #fff; width: 100%; padding: 12px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; }
 
-/* Tarjeta apuntada por el patito */
 .plato-card.pato-target {
     border-color: #b34724 !important;
     box-shadow: 0 0 15px rgba(179, 71, 36, 0.4) !important;
@@ -224,8 +219,6 @@ body {
     }
     .plato-card img { height: 180px; }
     .titulo-seccion { font-size: 1.1rem; margin: 30px 0 15px 0; }
-    
-    /* Ocultamos el patito en pantallas mini para que el usuario pueda presionar botones sin estorbos */
     .patito { display: none !important; }
 }
 
@@ -241,7 +234,7 @@ body {
     align-items: center; 
     transition: left 1.2s cubic-bezier(0.25, 1, 0.5, 1), top 1.2s cubic-bezier(0.25, 1, 0.5, 1); 
     opacity: 0; 
-    filter: drop-shadow(0 0 8px rgba(255, 234, 0, 0.8)); /* Aura de neón amarillo en el pato */
+    filter: drop-shadow(0 0 8px rgba(255, 234, 0, 0.8)); 
 }
 
 .pato-cuerpo-completo { 
@@ -331,10 +324,10 @@ body {
     background: #ff6600; 
 }
 
-/* 💬 CHAT DEL PATITO: NEÓN CYAN DE ALTA LEGIBILIDAD */
+/* CHAT NEÓN CYAN CON TEXTO NEGRO LEGIBLE */
 .bocadillo { 
-    background: #00ffff; /* Fondo cian eléctrico llamativo */
-    color: #000000;      /* Letras negras puras para legibilidad perfecta */
+    background: #00ffff; 
+    color: #000000;      
     font-family: 'Rajdhani', sans-serif !important;
     font-weight: 800; 
     font-size: 1.1rem; 
@@ -356,13 +349,11 @@ body {
     transform: scale(1); 
 }
 
-/* Neón Magenta cuando simula comer */
 .patito.comiendo .bocadillo { 
     background: #ff00ff; 
     box-shadow: 0 0 15px #ff00ff, 0 0 30px rgba(255, 0, 255, 0.5);
 }
 
-/* Neón Verde Lima cuando recomienda algo */
 .patito.satisfecho .bocadillo { 
     background: #39ff14; 
     box-shadow: 0 0 15px #39ff14, 0 0 30px rgba(57, 255, 20, 0.5);
