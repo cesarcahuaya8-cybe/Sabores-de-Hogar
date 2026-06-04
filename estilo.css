@@ -1,322 +1,105 @@
 /* =========================================================
-   1. CONFIGURACIÓN GENERAL Y FUENTES (MEDIEVAL / GÓTICO LEGIBLE)
+   1. CONFIGURACIÓN GENERAL Y MARCOS
    ========================================================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Almendra', serif;
-}
-
-body {
-    background-color: #141312; 
-    color: #f4f1ea;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    overflow-x: hidden;
-}
-
-.marco {
-    max-width: 1200px;
-    width: 100%;
-    background: #1e1b18; 
-    padding: 30px;
-    border-radius: 16px;
-    border: 1px solid #2e2824;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-    position: relative;
-    z-index: 2;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Almendra', serif; }
+body { background-color: #141312; color: #f4f1ea; padding: 20px; display: flex; justify-content: center; position: relative; overflow-x: hidden; }
+.marco { max-width: 1200px; width: 100%; background: #1e1b18; padding: 30px; border-radius: 16px; border: 1px solid #2e2824; box-shadow: 0 10px 40px rgba(0,0,0,0.6); position: relative; z-index: 2; }
 
 /* =========================================================
-   2. TEXTOS Y ENCABEZADO (ESTILO GÓTICO REFINADO)
+   2. TIPOGRAFÍAS GÓTICAS RÚSTICAS
    ========================================================= */
-.texto-ladrillo {
-    font-family: 'UnifrakturMaguntia', cursive !important;
-    font-size: 4.5rem; 
-    font-weight: 400;
-    color: #b34724; 
-    letter-spacing: 2px;
-    margin-bottom: 5px;
-    text-align: center;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-}
+.texto-ladrillo { font-family: 'UnifrakturMaguntia', cursive !important; font-size: 4.5rem; color: #b34724; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
+.slogan-calido { font-style: italic; font-size: 1.3rem; color: #d1bfa7; text-align: center; }
+.titulo-seccion { font-family: 'Cinzel Decorative', serif !important; font-weight: 700; color: #d1bfa7; border-bottom: 2px solid #b34724; padding-bottom: 8px; margin: 40px 0 20px 0; text-transform: uppercase; font-size: 1.4rem; }
 
-.slogan-calido {
-    font-family: 'Almendra', serif;
-    font-style: italic;
-    font-size: 1.3rem;
-    color: #d1bfa7; 
-    text-align: center;
-}
+/* ENCABEZADO Y LOGO */
+.header { display: flex; flex-direction: column; align-items: center; margin-bottom: 45px; border-bottom: 1px dashed #3a322d; padding-bottom: 35px; }
+.logo { width: 240px; height: 240px; border-radius: 50%; object-fit: cover; border: 2px solid #e3dac9; }
 
-.titulo-seccion {
-    font-family: 'Cinzel Decorative', serif !important;
-    font-weight: 700;
-    color: #d1bfa7;
-    border-bottom: 2px solid #b34724; 
-    padding-bottom: 8px;
-    margin: 40px 0 20px 0;
-    text-transform: uppercase;
-    font-size: 1.4rem;
-    letter-spacing: 1px;
-}
-
-/* --- LOGO DE 240PX CON BORDE FINO CREMA --- */
-.header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 45px;
-    border-bottom: 1px dashed #3a322d;
-    padding-bottom: 35px;
-}
-
-.logo {
-    width: 240px;               
-    height: 240px;              
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 25px;
-    border: 2px solid #e3dac9; 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); 
-    transition: transform 0.3s ease;
-}
-
-.logo:hover {
-    transform: scale(1.03);
-}
-
-/* =========================================================
-   3. ESTRUCTURA DE LA TIENDA Y TARJETAS DE PLATOS
-   ========================================================= */
-.main-container {
-    display: grid;
-    grid-template-columns: 2.1fr 0.9fr;
-    gap: 30px;
-}
-
-.grid-platos {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 20px;
-}
-
-.plato-card {
-    background: #26211d;
-    border: 1px solid #362f2a;
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: all 0.3s ease;
-}
-
-.plato-card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-}
-
-.plato-info {
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #211c19;
-    flex-grow: 1;
-}
-
-.plato-name {
-    font-family: 'Almendra', serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-}
-
-.plato-card:hover {
-    transform: translateY(-4px);
-    border-color: #b34724;
-}
-
-.btn-agregar {
-    background: transparent;
-    border: none;
-    color: #54473e;
-    font-size: 2rem;
-    cursor: pointer;
-    transition: color 0.2s, transform 0.2s;
-}
+/* TIENDA / GRID DE PLATOS */
+.main-container { display: grid; grid-template-columns: 2.1fr 0.9fr; gap: 30px; }
+.grid-platos { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+.plato-card { background: #26211d; border: 1px solid #362f2a; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: all 0.3s; }
+.plato-card img { width: 100%; height: 150px; object-fit: cover; }
+.plato-info { padding: 15px; display: flex; justify-content: space-between; align-items: center; background: #211c19; }
+.plato-name { font-size: 1.1rem; font-weight: 700; }
+.btn-agregar { background: transparent; border: none; color: #54473e; font-size: 2rem; cursor: pointer; }
 .plato-card:hover .btn-agregar { color: #b34724; }
-.btn-agregar:hover { transform: scale(1.1); }
 
-.seccion-info {
-    margin-top: 40px;
-    padding: 20px;
-    background: rgba(227, 218, 201, 0.02);
-    border-radius: 12px;
-    text-align: center;
-}
-.borde-suave { border: 1px solid #4a423a; }
-
-.info-bloque { margin: 10px 0; color: #f4f1ea; font-size: 1rem; }
-.info-bloque i { color: #b34724; margin-right: 8px; }
-.info-gracias { font-family: 'Cinzel Decorative', serif; color: #d1bfa7; margin-top: 15px; font-weight: bold; }
+/* CARRITO LATERAL FIJO CON QR */
+.carrito-sidebar { background-color: #191613; padding: 20px; border-radius: 12px; height: fit-content; }
+.carrito-titulo { font-family: 'Cinzel Decorative', serif; color: #b34724; text-align: center; }
+.lista-carrito { list-style: none; max-height: 220px; overflow-y: auto; }
+.input-contenedor-rustico { margin: 15px 0; }
+.label-rustico { font-size: 0.95rem; color: #d1bfa7; }
+.input-contenedor-rustico input { width: 100%; padding: 10px; background: #26211d; color: #fff; border: 1px solid #4a3e36; border-radius: 6px; }
+.qr-pago-box { background: #211c19; border: 1px dashed #b34724; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 15px; }
+.img-qr-rustica { width: 140px; height: 140px; border: 4px solid #fff; margin-top: 10px; }
+.btn-rustico-verde { background: #27ae60; color: #fff; width: 100%; padding: 12px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; }
 
 /* =========================================================
-   4. SECCIÓN LATERAL DEL CARRITO DE COMPRAS
+   3. ANIMACIONES REALISTAS (MOVIMIENTO DE CAMINATA)
    ========================================================= */
-.carrito-sidebar { 
-    background-color: #191613; 
-    padding: 20px; 
-    border-radius: 12px; 
-    height: fit-content; 
-    position: sticky; 
-    top: 20px; 
+/* Balanceo del cuerpo al caminar */
+@keyframes caminarCuerpo {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-6px) rotate(3deg); }
+    100% { transform: translateY(0) rotate(0deg); }
 }
-.carrito-titulo { font-family: 'Cinzel Decorative', serif; color: #b34724; text-align: center; margin-bottom: 15px; font-size: 1.2rem; }
-.lista-carrito { list-style: none; max-height: 220px; overflow-y: auto; margin-bottom: 15px; }
-.carrito-item { display: flex; justify-content: space-between; padding: 8px; background: #211c19; margin-bottom: 6px; border-radius: 4px; }
-.item-qty { color: #b34724; font-weight: bold; margin-right: 5px; }
 
-.input-contenedor-rustico { margin-bottom: 15px; }
-.label-rustico { font-size: 0.95rem; color: #d1bfa7; margin-bottom: 4px; display: block; }
-.input-contenedor-rustico input, .input-contenedor-rustico textarea { width: 100%; padding: 10px; background: #26211d; color: #fff; border: 1px solid #4a3e36; border-radius: 6px; font-size: 1rem; }
-.input-contenedor-rustico textarea { height: 60px; resize: none; }
-
-/* RECUADRO DEL QR: CORREGIDO A "BLOCK" PARA QUE SE VEA SIEMPRE */
-.qr-pago-box { 
-    background: #211c19; 
-    border: 1px dashed #b34724; 
-    padding: 15px; 
-    border-radius: 8px; 
-    text-align: center; 
-    display: block; /* Cambiado de none a block */
-    margin-bottom: 15px;
+/* Movimiento alternado de las patas */
+@keyframes pataIzquierda {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(-25deg) translateY(-3px); }
 }
-.img-qr-rustica { width: 140px; height: 140px; border: 4px solid #fff; margin: 10px 0; }
-.btn-rustico-verde { background: #27ae60; color: #fff; width: 100%; padding: 12px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-family: sans-serif; }
-
-.plato-card.pato-target {
-    border-color: #b34724 !important;
-    box-shadow: 0 0 15px rgba(179, 71, 36, 0.4) !important;
+@keyframes pataDerecha {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(25deg) translateY(-3px); }
 }
+
+/* Modificadores de movimiento activo */
+.patito.en-movimiento .pato-cuerpo-completo,
+.pollo.en-movimiento .pollo-cuerpo-completo {
+    animation: caminarCuerpo 0.4s infinite ease-in-out;
+}
+.patito.en-movimiento .pata-izq, .pollo.en-movimiento .pata-izq { animation: pataIzquierda 0.4s infinite ease-in-out; }
+.patito.en-movimiento .pata-der, .pollo.en-movimiento .pata-der { animation: pataDerecha 0.4s infinite ease-in-out; }
 
 /* =========================================================
-   5. DISEÑO RESPONSIVO (TABLETS Y CELULARES)
+   4. ESTILO DEL PATITO (NEÓN CYAN DE REACCIÓN)
    ========================================================= */
-@media (max-width: 980px) {
-    body { padding: 10px; }
-    .marco { padding: 20px; }
-    .texto-ladrillo { font-size: 3.4rem; }
-    .logo { width: 180px; height: 180px; }
-    .main-container { 
-        grid-template-columns: 1fr; 
-        gap: 40px;
-    }
-    .carrito-sidebar {
-        position: static; 
-        width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .texto-ladrillo { font-size: 2.5rem; }
-    .slogan-calido { font-size: 1.1rem; }
-    .logo { width: 140px; height: 140px; margin-bottom: 15px; }
-    .header { padding-bottom: 20px; margin-bottom: 25px; }
-    .grid-platos {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    .plato-card img { height: 180px; }
-    .titulo-seccion { font-size: 1.1rem; margin: 30px 0 15px 0; }
-    .patito { display: none !important; }
-}
-
-/* =========================================================
-   6. EL PATITO CHEF Y EL CHAT EN VERSIÓN NEÓN ENERGÉTICO ⚡
-   ========================================================= */
-.patito { 
-    position: absolute; 
-    z-index: 999; 
-    pointer-events: none; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    transition: left 1.2s cubic-bezier(0.25, 1, 0.5, 1), top 1.2s cubic-bezier(0.25, 1, 0.5, 1); 
-    opacity: 0; 
-    filter: drop-shadow(0 0 8px rgba(255, 234, 0, 0.8)); 
-}
-
-.pato-cuerpo-completo { 
-    position: relative; 
-    width: 82px; 
-    height: 90px; 
-}
-
-.pato-tronco { 
-    position: absolute; 
-    bottom: 18px; 
-    width: 75px; 
-    height: 50px; 
-    background: #ffea00; 
-    border-radius: 35px 48px 35px 35px; 
-}
-
-.pato-cabeza-cuello { 
-    position: absolute; 
-    top: -4px; 
-    right: -4px; 
-    width: 44px; 
-    height: 44px; 
-}
-
-.pato-cabeza { 
-    position: relative; 
-    width: 44px; 
-    height: 44px; 
-    background: #ffea00; 
-    border-radius: 50%; 
-}
-
-.pato-ojo { 
-    position: absolute; 
-    top: 11px; 
-    right: 10px; 
-    width: 7px; 
-    height: 7px; 
-    background: #000; 
-    border-radius: 50%; 
-}
-
+.patito { position: absolute; z-index: 999; pointer-events: none; display: flex; flex-direction: column; align-items: center; transition: left 0.8s linear, top 0.8s linear; opacity: 0; filter: drop-shadow(0 0 8px #ffea00); }
+.pato-cuerpo-completo { position: relative; width: 82px; height: 90px; }
+.pato-tronco { position: absolute; bottom: 18px; width: 75px; height: 50px; background: #ffea00; border-radius: 35px 48px 35px 35px; }
+.pato-cabeza-cuello { position: absolute; top: -4px; right: -4px; width: 44px; height: 44px; }
+.pato-cabeza { relative; width: 44px; height: 44px; background: #ffea00; border-radius: 50%; }
+.pato-ojo { position: absolute; top: 11px; right: 10px; width: 7px; height: 7px; background: #000; border-radius: 50%; }
 .pato-pico { position: absolute; top: 15px; right: -14px; width: 18px; height: 12px; background: #ff6600; border-radius: 0 50% 50% 0; }
 .sombrero-chef { position: absolute; top: -22px; right: 8px; width: 26px; height: 24px; background: #ffffff; border-radius: 10px 10px 4px 4px; }
 .sombrero-chef::after { content: ''; position: absolute; bottom: -2px; left: -2px; width: 30px; height: 6px; background: #b34724; border-radius: 2px; }
 .pato-patas { position: absolute; bottom: -6px; left: 20px; width: 40px; display: flex; justify-content: space-between; }
-.pata { width: 11px; height: 24px; background: #ff6600; }
+.pata { width: 11px; height: 16px; background: #ff6600; transform-origin: top center; }
 
-.bocadillo { 
-    background: #00ffff; 
-    color: #000000;      
-    font-family: 'Rajdhani', sans-serif !important;
-    font-weight: 800; 
-    font-size: 1.1rem; 
-    padding: 10px 16px; 
-    border-radius: 12px; 
-    margin-bottom: 12px; 
-    white-space: nowrap; 
-    opacity: 0; 
-    transform: scale(0.7); 
-    transition: all 0.3s ease;
-    box-shadow: 0 0 15px #00ffff, 0 0 30px rgba(0, 255, 255, 0.5);
-    border: 2px solid #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
+.bocadillo { background: #00ffff; color: #000; font-family: 'Rajdhani', sans-serif !important; font-weight: 800; padding: 10px 16px; border-radius: 12px; margin-bottom: 12px; white-space: nowrap; opacity: 0; transform: scale(0.7); transition: all 0.3s; box-shadow: 0 0 15px #00ffff; border: 2px solid #fff; }
 .bocadillo.mostrar-dialogo { opacity: 1; transform: scale(1); }
-.patito.comiendo .bocadillo { background: #ff00ff; box-shadow: 0 0 15px #ff00ff, 0 0 30px rgba(255, 0, 255, 0.5); }
-.patito.satisfecho .bocadillo { background: #39ff14; box-shadow: 0 0 15px #39ff14, 0 0 30px rgba(57, 255, 20, 0.5); }
-.bocadillo::after { content: ''; position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); border-width: 8px 8px 0; border-style: solid; border-color: inherit; }
+
+/* =========================================================
+   5. DISEÑO DEL POLLO RIVAL (NEÓN ROJO/MAGENTA AMENAZANTE)
+   ========================================================= */
+.pollo { position: absolute; z-index: 998; pointer-events: none; display: flex; flex-direction: column; align-items: center; transition: left 0.8s linear, top 0.8s linear; opacity: 0; filter: drop-shadow(0 0 8px #ffffff); transform: scaleX(-1); } /* Viene mirando al revés hacia el pato */
+.pollo-cuerpo-completo { position: relative; width: 82px; height: 90px; }
+.pollo-tronco { position: absolute; bottom: 18px; width: 75px; height: 52px; background: #ffffff; border-radius: 40px 40px 35px 45px; }
+.pollo-cabeza { position: absolute; top: -4px; right: -4px; width: 46px; height: 46px; background: #ffffff; border-radius: 50%; }
+.cresta-pollo { position: absolute; top: -20px; right: 14px; width: 16px; height: 20px; background: #e74c3c; border-radius: 50% 50% 0 0; }
+.pico-pollo { position: absolute; top: 18px; right: -12px; width: 14px; height: 14px; background: #f39c12; transform: rotate(45deg); }
+.bandana-ninja { position: absolute; top: 10px; left: -2px; width: 50px; height: 10px; background: #ff00ff; z-index: 5; box-shadow: 0 0 8px #ff00ff; }
+.pollo-ala { position: absolute; top: 35px; left: 15px; width: 35px; height: 25px; background: #eeeeee; border-radius: 50%; border: 1px solid #ddd; }
+.pollo-patas { position: absolute; bottom: -6px; left: 22px; width: 35px; display: flex; justify-content: space-between; }
+.pata-p { width: 10px; height: 16px; background: #f39c12; transform-origin: top center; }
+
+/* Bocadillo del Pollo en Neón Fucsia/Rojo */
+.bocadillo-pollo { background: #ff0055; color: #ffffff; font-family: 'Rajdhani', sans-serif !important; font-weight: 800; padding: 10px 16px; border-radius: 12px; margin-bottom: 12px; white-space: nowrap; opacity: 0; transform: scale(0.7) scaleX(-1); transition: all 0.3s; box-shadow: 0 0 15px #ff0055; border: 2px solid #fff; }
+.bocadillo-pollo.mostrar-dialogo { opacity: 1; transform: scale(1) scaleX(-1); }
+
+/* Responsivo desactiva las peleas en pantallas muy chicas */
+@media (max-width: 760px) { .patito, .pollo { display: none !important; } .main-container { grid-template-columns: 1fr; } }
