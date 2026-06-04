@@ -5,19 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sabores de Hogar - Menú Digital</title>
     
-    <!-- FUENTES ELEGANTES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2 family=Cinzel:wght@600;800&family=Lora:ital,wght@0,500;1,400&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Lora:ital,wght@0,500;1,400&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
     
-    <!-- Librería de Iconos -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="./estilo.css">
 </head>
 <body>
 
-    <!-- EL PATITO CHEF GIGANTE -->
     <div id="patito-guia" class="patito">
         <div class="bocadillo" id="bocadillo-pato">¡Hola! 👋</div>
         <div class="pato-cuerpo-completo">
@@ -38,20 +35,16 @@
     </div>
 
     <div class="marco">
-        <!-- LOGO / HEADER (Borde claro y sutil) -->
         <header class="header">
             <img src="logo.jpeg" alt="Logo Sabores de Hogar" class="logo">
             <h1 class="texto-ladrillo">Sabores de Hogar</h1>
             <p class="slogan-calido">El sabor que reúne a la familia</p>
         </header>
 
-        <!-- CONTENEDOR PRINCIPAL RESPONSIVO -->
         <div class="main-container">
             
-            <!-- SECCIÓN DEL MENÚ -->
             <main class="left-menu">
                 
-                <!-- 1. ESPECIALES DE CHANCHO Y POLLO -->
                 <h2 class="titulo-seccion">🐷 Especiales de Chancho y Pollo</h2>
                 <div class="grid-platos">
                     <div class="plato-card">
@@ -98,7 +91,6 @@
                     </div>
                 </div>
 
-                <!-- 2. ESPECIALES TRADICIONALES -->
                 <h2 class="titulo-seccion">🌵 Especiales Tradicionales</h2>
                 <div class="grid-platos">
                     <div class="plato-card">
@@ -117,7 +109,6 @@
                     </div>
                 </div>
 
-                <!-- SECCIÓN DE SEÑALÉTICAS -->
                 <section class="seccion-info borde-suave">
                     <div class="info-bloque"><i class="ri-takeaway-fill"></i> ¡Solo entregas a Domicilio!</div>
                     <div class="info-bloque"><i class="ri-qr-code-line"></i> Escanea el QR al confirmar tu pedido</div>
@@ -126,12 +117,10 @@
                 
             </main>
 
-            <!-- SECCIÓN LATERAL: CARRITO -->
             <aside class="carrito-sidebar borde-suave">
                 <h3 class="carrito-titulo">🛒 Tu Pedido</h3>
                 <ul id="lista" class="lista-carrito"></ul>
                 
-                <!-- CAMPOS DE ENVÍO -->
                 <div class="input-contenedor-rustico">
                     <label class="label-rustico"><i class="ri-map-pin-2-fill"></i> Dirección de tu Domicilio:</label>
                     <input type="text" id="direccion-envio" placeholder="Ej: Av. Ballivián #123">
@@ -142,7 +131,6 @@
                     <textarea id="nota" placeholder="Ej: sin picante..."></textarea>
                 </div>
 
-                <!-- SECCIÓN DEL MODAL QR -->
                 <div id="seccion-qr-pago" class="qr-pago-box">
                     <h4>💳 Realiza tu Pago</h4>
                     <p>Escanea este QR para pagar mediante transferencia:</p>
