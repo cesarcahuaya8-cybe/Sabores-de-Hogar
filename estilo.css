@@ -1,5 +1,235 @@
 /* =========================================================
-   ESTILOS DEL PATITO Y BOCADILLO EN VERSIÓN NEÓN ⚡
+   1. CONFIGURACIÓN GENERAL Y FUENTES (ESTILO RÚSTICO HOGAREÑO)
+   ========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lora', serif;
+}
+
+body {
+    background-color: #141312; /* Fondo carbón cálido elegante */
+    color: #f4f1ea;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Contenedor principal que enmarca todo el sitio */
+.marco {
+    max-width: 1200px;
+    width: 100%;
+    background: #1e1b18; /* Tono tierra acogedor */
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #2e2824;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================================================
+   2. TEXTOS Y ENCABEZADO (TONOS LADRILLO CÁLIDOS)
+   ========================================================= */
+.texto-ladrillo {
+    font-family: 'Cinzel', serif !important;
+    font-weight: 800;
+    font-size: 3.4rem;
+    color: #b34724; /* Color Ladrillo pedido por el cliente */
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.slogan-calido {
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #d1bfa7; 
+    text-align: center;
+}
+
+.titulo-seccion {
+    font-family: 'Cinzel', serif !important;
+    font-weight: 600;
+    color: #d1bfa7;
+    border-bottom: 2px solid #b34724; 
+    padding-bottom: 8px;
+    margin: 40px 0 20px 0;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+}
+
+/* --- HEADER Y LOGO DE 240PX (BORDE FINO CREMA) --- */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 45px;
+    border-bottom: 1px dashed #3a322d;
+    padding-bottom: 35px;
+}
+
+.logo {
+    width: 240px;               
+    height: 240px;              
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 25px;
+    border: 2px solid #e3dac9; /* Borde crema sutil, nada de discoteca */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); 
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.03);
+}
+
+/* =========================================================
+   3. ESTRUCTURA DE LA TIENDA Y TARJETAS DE PLATOS
+   ========================================================= */
+.main-container {
+    display: grid;
+    grid-template-columns: 2.1fr 0.9fr;
+    gap: 30px;
+}
+
+.grid-platos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.plato-card {
+    background: #26211d;
+    border: 1px solid #362f2a;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.plato-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.plato-info {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #211c19;
+    flex-grow: 1;
+}
+
+.plato-name {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.plato-card:hover {
+    transform: translateY(-4px);
+    border-color: #b34724;
+}
+
+.btn-agregar {
+    background: transparent;
+    border: none;
+    color: #54473e;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+}
+.plato-card:hover .btn-agregar { color: #b34724; }
+.btn-agregar:hover { transform: scale(1.1); }
+
+/* Bloque informativo inferior */
+.seccion-info {
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(227, 218, 201, 0.02);
+    border-radius: 12px;
+    text-align: center;
+}
+.borde-suave { border: 1px solid #4a423a; }
+
+.info-bloque { margin: 10px 0; color: #f4f1ea; font-size: 0.95rem; }
+.info-bloque i { color: #b34724; margin-right: 8px; }
+.info-gracias { color: #d1bfa7; margin-top: 15px; font-weight: bold; }
+
+/* =========================================================
+   4. SECCIÓN LATERAL DEL CARRITO DE COMPRAS
+   ========================================================= */
+.carrito-sidebar { 
+    background-color: #191613; 
+    padding: 20px; 
+    border-radius: 12px; 
+    height: fit-content; 
+    position: sticky; 
+    top: 20px; 
+}
+.carrito-titulo { font-family: 'Cinzel', serif; color: #b34724; text-align: center; margin-bottom: 15px; }
+.lista-carrito { list-style: none; max-height: 220px; overflow-y: auto; margin-bottom: 15px; }
+.carrito-item { display: flex; justify-content: space-between; padding: 8px; background: #211c19; margin-bottom: 6px; border-radius: 4px; }
+.item-qty { color: #b34724; font-weight: bold; margin-right: 5px; }
+
+.input-contenedor-rustico { margin-bottom: 15px; }
+.label-rustico { font-size: 0.85rem; color: #d1bfa7; margin-bottom: 4px; display: block; }
+.input-contenedor-rustico input, .input-contenedor-rustico textarea { width: 100%; padding: 10px; background: #26211d; color: #fff; border: 1px solid #4a3e36; border-radius: 6px; }
+.input-contenedor-rustico textarea { height: 60px; resize: none; }
+
+/* Modal dinámico del QR de pago */
+.qr-pago-box { background: #211c19; border: 1px dashed #b34724; padding: 15px; border-radius: 8px; text-align: center; display: none; }
+.img-qr-rustica { width: 140px; height: 140px; border: 4px solid #fff; margin: 10px 0; }
+.btn-rustico-verde { background: #27ae60; color: #fff; width: 100%; padding: 12px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; }
+
+/* Tarjeta apuntada por el patito */
+.plato-card.pato-target {
+    border-color: #b34724 !important;
+    box-shadow: 0 0 15px rgba(179, 71, 36, 0.4) !important;
+}
+
+/* =========================================================
+   5. DISEÑO RESPONSIVO (TABLETS Y CELULARES)
+   ========================================================= */
+@media (max-width: 980px) {
+    body { padding: 10px; }
+    .marco { padding: 20px; }
+    .texto-ladrillo { font-size: 2.6rem; }
+    .logo { width: 180px; height: 180px; }
+    .main-container { 
+        grid-template-columns: 1fr; 
+        gap: 40px;
+    }
+    .carrito-sidebar {
+        position: static; 
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .texto-ladrillo { font-size: 2rem; }
+    .slogan-calido { font-size: 1rem; }
+    .logo { width: 140px; height: 140px; margin-bottom: 15px; }
+    .header { padding-bottom: 20px; margin-bottom: 25px; }
+    .grid-platos {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .plato-card img { height: 180px; }
+    .titulo-seccion { font-size: 1.1rem; margin: 30px 0 15px 0; }
+    
+    /* Ocultamos el patito en pantallas mini para que el usuario pueda presionar botones sin estorbos */
+    .patito { display: none !important; }
+}
+
+/* =========================================================
+   6. EL PATITO CHEF Y EL CHAT EN VERSIÓN NEÓN ENERGÉTICO ⚡
    ========================================================= */
 .patito { 
     position: absolute; 
@@ -10,8 +240,7 @@
     align-items: center; 
     transition: left 1.2s cubic-bezier(0.25, 1, 0.5, 1), top 1.2s cubic-bezier(0.25, 1, 0.5, 1); 
     opacity: 0; 
-    /* Filtro de brillo neón para todo el cuerpo del patito */
-    filter: drop-shadow(0 0 8px rgba(255, 234, 0, 0.8));
+    filter: drop-shadow(0 0 8px rgba(255, 234, 0, 0.8)); /* Aura de neón amarillo en el pato */
 }
 
 .pato-cuerpo-completo { 
@@ -101,11 +330,11 @@
     background: #ff6600; 
 }
 
-/* 💬 EL CHAT DEL PATO: NEÓN DE ALTA LEGIBILIDAD */
+/* 💬 CHAT DEL PATITO: NEÓN CYAN DE ALTA LEGIBILIDAD */
 .bocadillo { 
-    background: #00ffff; /* Fondo cian neón eléctrico */
-    color: #000000;      /* Texto negro puro para un contraste brutal y perfecta lectura */
-    font-family: 'Rajdhani', sans-serif; /* Cambiada a una fuente más gruesa y moderna */
+    background: #00ffff; /* Fondo cian eléctrico llamativo */
+    color: #000000;      /* Letras negras puras para legibilidad perfecta */
+    font-family: 'Rajdhani', sans-serif !important;
     font-weight: 800; 
     font-size: 1.1rem; 
     padding: 10px 16px; 
@@ -115,8 +344,6 @@
     opacity: 0; 
     transform: scale(0.7); 
     transition: all 0.3s ease;
-    
-    /* Efecto de resplandor neón exterior */
     box-shadow: 0 0 15px #00ffff, 0 0 30px rgba(0, 255, 255, 0.5);
     border: 2px solid #ffffff;
     text-transform: uppercase;
@@ -128,18 +355,18 @@
     transform: scale(1); 
 }
 
-/* Variaciones de neón según el estado del patito */
+/* Neón Magenta cuando simula comer */
 .patito.comiendo .bocadillo { 
-    background: #ff00ff; /* Neón Magenta */
+    background: #ff00ff; 
     box-shadow: 0 0 15px #ff00ff, 0 0 30px rgba(255, 0, 255, 0.5);
 }
 
+/* Neón Verde Lima cuando recomienda algo */
 .patito.satisfecho .bocadillo { 
-    background: #39ff14; /* Neón Verde Lima */
+    background: #39ff14; 
     box-shadow: 0 0 15px #39ff14, 0 0 30px rgba(57, 255, 20, 0.5);
 }
 
-/* La flechita del bocadillo apuntando al pato */
 .bocadillo::after { 
     content: ''; 
     position: absolute; 
