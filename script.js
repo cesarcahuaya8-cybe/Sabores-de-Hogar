@@ -1,157 +1,97 @@
-let pedido = [];
+// VARIABLES DE CONTROL DE LOS GUERREROS
+const pato = document.getElementById('patito-guia');
+const zorro = document.getElementById('enemigo-zorro');
+const bPato = document.getElementById('bocadillo-pato');
+const bZorro = document.getElementById('bocadillo-zorro');
 
-function add(item) {
-    pedido.push(item);
-    mostrar();
+let posicionPato = { x: 100, y: 200 };
+let posicionZorro = { x: 800, y: 250 };
+
+// ACTIVAR EN PANTALLA
+setTimeout(() => {
+    pato.style.opacity = "1";
+    zorro.style.opacity = "1";
+    combateMilitarLoop();
+}, 1500);
+
+// SISTEMA DE IA DE COMBATE EN TIEMPO REAL
+function combateMilitarLoop() {
+    // Buscar una tarjeta de comida al azar para disputarla
+    const tarjetas = document.querySelectorAll('.plato-card');
+    if (tarjetas.length === 0) return;
+    
+    const tarjetaObjetivo = tarjetas[Math.floor(Math.random() * tarjetas.length)];
+    const coordenadas = tarjetaObjetivo.getBoundingClientRect();
+    
+    // El Zorro avanza sigilosamente a atacar el plato
+    setTimeout(() => {
+        zorro.classList.add('zorro-acechando');
+        posicionZorro.x = coordenadas.left + window.scrollX + 60;
+        posicionZorro.y = coordenadas.top + window.scrollY - 30;
+        actualizarPosiciones();
+        
+        bZorro.innerText = "¡Me llevaré este plato! 😈";
+        bZorro.classList.add('mostrar-dialogo');
+    }, 1000);
+
+    // El Pato detecta la amenaza y corre a interceptarlo velozmente
+    setTimeout(() => {
+        pato.classList.add('pato-corriendo');
+        posicionPato.x = coordenadas.left + window.scrollX - 70;
+        posicionPato.y = coordenadas.top + window.scrollY - 40;
+        actualizarPosiciones();
+        
+        bPato.innerText = "¡Defenderé el menú! ⚔️";
+        bPato.classList.add('mostrar-dialogo');
+    }, 1800);
+
+    // MOMENTO DEL IMPACTO REAL (EL CHOQUE)
+    setTimeout(() => {
+        pato.classList.remove('pato-corriendo');
+        pato.classList.add('pato-atacando');
+        
+        // El plato tiembla y sufre daño por la batalla
+        tarjetaObjetivo.classList.add('recibir-golpe');
+        zorro.classList.add('recibir-golpe');
+        
+        bZorro.innerText = "¡AUUCH! 💥";
+        bPato.innerText = "¡TOMA ESTO! ⚡";
+        
+        setTimeout(() => {
+            pato.classList.remove('pato-atacando');
+            tarjetaObjetivo.classList.remove('recibir-golpe');
+            zorro.classList.remove('recibir-golpe');
+            bZorro.classList.remove('mostrar-dialogo');
+            bPato.classList.remove('mostrar-dialogo');
+        }, 800);
+        
+    }, 2800);
+
+    // El bucle se repite buscando otro sector del menú cada 7 segundos
+    setTimeout(combateMilitarLoop, 7000);
 }
 
-function eliminar(nombrePlato) {
-    const index = pedido.lastIndexOf(nombrePlato);
-    if (index !== -1) {
-        pedido.splice(index, 1);
-    }
-    mostrar();
+function actualizarPosiciones() {
+    pato.style.left = `${posicionPato.x}px`;
+    pato.style.top = `${posicionPato.y}px`;
+    zorro.style.left = `${posicionZorro.x}px`;
+    zorro.style.top = `${posicionZorro.y}px`;
 }
 
-function mostrar() {
-    const lista = document.getElementById("lista");
-    lista.innerHTML = "";
-
-    let conteo = {};
-    pedido.forEach(plato => conteo[plato] = (conteo[plato] || 0) + 1);
-
-    for (let plato in conteo) {
-        const li = document.createElement("li");
-        li.className = "carrito-item";
-        li.innerHTML = `
-            <div>
-                <span class="item-qty">${conteo[plato]}x</span>
-                <span class="item-text">${plato}</span>
-            </div>
-            <button class="btn-eliminar" onclick="eliminar('${plato}')">×</button>
-        `;
-        lista.appendChild(li);
-    }
+// LOGICA MINI DEL CARRITO PARA QUE SIGA FUNCIONANDO
+function add(nombrePlato) {
+    const lista = document.getElementById('lista');
+    const li = document.createElement('li');
+    li.className = "carrito-item";
+    li.innerHTML = `<span><span class="item-qty">1x</span> ${nombrePlato}</span>`;
+    lista.appendChild(li);
+    
+    // Interrupción del Pato al comprar
+    bPato.innerText = "¡Excelente elección! 👨‍🍳";
+    bPato.classList.add('mostrar-dialogo');
+    setTimeout(() => bPato.classList.remove('mostrar-dialogo'), 2000);
 }
 
 function enviarPedido() {
-    if (pedido.length === 0) {
-        alert("¡Tu carrito está vacío! Añade deliciosos platos primero.");
-        return;
-    }
-
-    let direccion = document.getElementById("direccion-envio").value.trim();
-    if (!direccion) {
-        alert("Por favor, ingresa tu dirección de domicilio para realizar el envío.");
-        document.getElementById("direccion-envio").focus();
-        return;
-    }
-
-    const qrSeccion = document.getElementById("seccion-qr-pago");
-    qrSeccion.style.display = "block";
-
-    let nota = document.getElementById("nota").value.trim();
-    
-    let texto = "*¡Hola! Sabores de Hogar, deseo realizar un pedido a domicilio:* 🛵🏡\n\n";
-    texto += `📍 *Dirección de Entrega:* ${direccion}\n\n`;
-    texto += "📝 *Detalle de la Orden:*\n";
-
-    let conteo = {};
-    pedido.forEach(plato => conteo[plato] = (conteo[plato] || 0) + 1);
-    for (let plato in conteo) {
-        texto += `• *${conteo[plato]}x* ${plato}\n`;
-    }
-    
-    if (nota) texto += `\n🔍 *Notas:* ${nota}`;
-    texto += "\n\n💳 _Procederé a escanear el QR para adjuntar el comprobante de pago._";
-
-    setTimeout(() => {
-        window.open("https://wa.me/59176527078?text=" + encodeURIComponent(texto));
-    }, 1500);
+    alert("Pedido enviado a WhatsApp. ¡Gracias!");
 }
-
-/* --- MOVIMIENTO DEL PATITO ADAPTADO --- */
-window.addEventListener('DOMContentLoaded', () => {
-    const pato = document.getElementById('patito-guia');
-    const bocadillo = document.getElementById('bocadillo-pato');
-    
-    const frasesDeCamino = [
-        "¿Cómo estás? 😊",
-        "¿Ya comiste? 👀",
-        "¡Qué lindo verte por aquí! ✨",
-        "¿Qué se te antoja hoy? 👨‍🍳",
-        "¿Tienes mucha hambre? 🦆"
-    ];
-
-    const frasesComiendo = [
-        "¡ÑAM, ÑAM! 😋",
-        "*Crunsh, crunsh* 🥖",
-        "¡Está riquísimo! 🤤",
-        "¡Uff, de locos! 🔥"
-    ];
-
-    const frasesSatisfecho = [
-        "¡SÚPER RECOMENDADO! 👍",
-        "¡10/10 de sabor! ⭐",
-        "¡Joyita de plato! 💎",
-        "¡Pídete este ya! 🛒"
-    ];
-
-    function moverPatitoAUnPlato() {
-        const platos = document.querySelectorAll('.plato-card');
-        if (platos.length === 0) return;
-
-        bocadillo.classList.remove('mostrar-dialogo');
-        
-        setTimeout(() => {
-            platos.forEach(p => p.classList.remove('pato-target'));
-            pato.classList.remove('comiendo', 'satisfecho');
-            pato.classList.add('caminando');
-
-            const platoAlAzar = platos[Math.floor(Math.random() * platos.length)];
-            const rectPlato = platoAlAzar.getBoundingClientRect();
-            const scrollX = window.scrollX;
-            const scrollY = window.scrollY;
-
-            pato.style.opacity = "1";
-            pato.style.left = `${rectPlato.left + scrollX - 105}px`;
-            pato.style.top = `${rectPlato.top + scrollY + (rectPlato.height / 8)}px`;
-
-            bocadillo.innerText = frasesDeCamino[Math.floor(Math.random() * frasesDeCamino.length)];
-            
-            setTimeout(() => {
-                bocadillo.classList.add('mostrar-dialogo');
-            }, 400);
-
-            setTimeout(() => {
-                pato.classList.remove('caminando'); 
-                platoAlAzar.classList.add('pato-target');
-                bocadillo.classList.remove('mostrar-dialogo');
-
-                setTimeout(() => {
-                    pato.classList.add('comiendo');
-                    bocadillo.innerText = frasesComiendo[Math.floor(Math.random() * frasesComiendo.length)];
-                    bocadillo.classList.add('mostrar-dialogo');
-
-                    setTimeout(() => {
-                        pato.classList.remove('comiendo');
-                        bocadillo.classList.remove('mostrar-dialogo');
-
-                        setTimeout(() => {
-                            pato.classList.add('satisfecho');
-                            bocadillo.innerText = frasesSatisfecho[Math.floor(Math.random() * frasesSatisfecho.length)];
-                            bocadillo.classList.add('mostrar-dialogo');
-                        }, 300);
-
-                    }, 4000);
-
-                }, 300);
-
-            }, 1200); 
-
-        }, 300);
-    }
-
-    setTimeout(moverPatitoAUnPlato, 1000);
-    setInterval(moverPatitoAUnPlato, 12000);
-});
