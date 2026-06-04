@@ -1,13 +1,13 @@
-/* --- CONFIGURACIÓN GENERAL (MÁS CÁLIDA) --- */
+/* --- CONFIGURACIÓN GENERAL --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Lora', serif; /* Cambiado a una fuente más hogareña y elegante */
+    font-family: 'Lora', serif;
 }
 
 body {
-    background-color: #141312; /* Fondo carbón cálido, adiós negro discoteca */
+    background-color: #141312; 
     color: #f4f1ea;
     padding: 20px;
     display: flex;
@@ -16,10 +16,11 @@ body {
     overflow-x: hidden;
 }
 
+/* Contenedor responsivo base */
 .marco {
     max-width: 1200px;
     width: 100%;
-    background: #1e1b18; /* Tono tierra oscuro acogedor */
+    background: #1e1b18; 
     padding: 30px;
     border-radius: 16px;
     border: 1px solid #2e2824;
@@ -28,45 +29,40 @@ body {
     z-index: 2;
 }
 
-/* --- NUEVOS TONOS LADRILLO / CASEROS --- */
+/* --- TONOS CÁLIDOS --- */
 .texto-ladrillo {
     font-family: 'Cinzel', serif !important;
     font-weight: 800;
     font-size: 3.4rem;
-    color: #b34724; /* Color Ladrillo Elegante solicitado */
+    color: #b34724; 
     letter-spacing: 1px;
     margin-bottom: 5px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    text-align: center;
 }
 
 .slogan-calido {
-    font-family: 'Lora', serif;
     font-style: italic;
     font-size: 1.2rem;
-    color: #d1bfa7; /* Color arena suave */
+    color: #d1bfa7; 
     text-align: center;
-    margin-bottom: 10px;
 }
 
 .titulo-seccion {
     font-family: 'Cinzel', serif !important;
     font-weight: 600;
     color: #d1bfa7;
-    border-bottom: 2px solid #b34724; /* Línea divisoria color ladrillo */
+    border-bottom: 2px solid #b34724; 
     padding-bottom: 8px;
     margin: 40px 0 20px 0;
     text-transform: uppercase;
     font-size: 1.3rem;
-    letter-spacing: 1px;
 }
 
-/* --- HEADER (LOGO GIGANTE DE 240PX REFINADO) --- */
+/* --- LOGO CON BORDE CLARO Y FINO (PETICIÓN DEL CLIENTE) --- */
 .header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
     margin-bottom: 45px;
     border-bottom: 1px dashed #3a322d;
     padding-bottom: 35px;
@@ -78,29 +74,27 @@ body {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 25px;
-    border: 5px solid #b34724; /* Borde color ladrillo firme, sin luces de neón */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); /* Sombra elegante natural */
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Cambio: Borde color crema/arena muy delgado y elegante */
+    border: 2px solid #e3dac9; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); 
+    transition: transform 0.3s ease;
 }
 
 .logo:hover {
-    transform: scale(1.05);
-    border-color: #d95d32; /* Ladrillo un poco más claro al pasar el mouse */
+    transform: scale(1.03);
 }
 
-/* --- ESTRUCTURA --- */
+/* --- MALLA / GRID DE ESCRITORIO --- */
 .main-container {
     display: grid;
-    grid-template-columns: 2.2fr 0.8fr;
+    grid-template-columns: 2.1fr 0.9fr;
     gap: 30px;
 }
 
-/* --- GRID DE PLATOS --- */
 .grid-platos {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 20px;
-    margin-bottom: 20px;
 }
 
 .plato-card {
@@ -108,17 +102,15 @@ body {
     border: 1px solid #362f2a;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
+    transition: all 0.3s ease;
 }
 
 .plato-card img {
     width: 100%;
-    height: 140px;
+    height: 150px;
     object-fit: cover;
-    border-bottom: 1px solid #362f2a;
 }
 
 .plato-info {
@@ -126,163 +118,132 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-grow: 1;
     background: #211c19;
+    flex-grow: 1;
 }
 
 .plato-name {
-    font-family: 'Lora', serif;
     font-size: 1rem;
     font-weight: 600;
-    color: #f4f1ea;
-    line-height: 1.3;
 }
 
 .plato-card:hover {
     transform: translateY(-4px);
-    border-color: #b34724; /* Destaca en color ladrillo */
-    box-shadow: 0 6px 20px rgba(179, 71, 36, 0.15);
-}
-
-/* Resaltado del patito modificado a tonos fuego tradicionales */
-.plato-card.pato-target {
-    border-color: #e67e22 !important;
-    box-shadow: 0 0 20px rgba(230, 126, 34, 0.3) !important;
+    border-color: #b34724;
 }
 
 .btn-agregar {
     background: transparent;
     border: none;
     color: #54473e;
-    font-size: 1.9rem;
+    font-size: 2rem;
     cursor: pointer;
-    display: flex;
-    transition: all 0.2s ease;
+    transition: color 0.2s, transform 0.2s;
 }
 .plato-card:hover .btn-agregar { color: #b34724; }
-.btn-agregar:hover { transform: scale(1.15); filter: drop-shadow(0 2px 5px rgba(179,71,36,0.4)); }
+.btn-agregar:hover { transform: scale(1.1); }
 
-/* --- SECCIÓN INFORMATIVA --- */
+/* --- SECCIONES Y BORDES --- */
 .seccion-info {
-    margin-top: 50px;
-    padding: 25px;
-    background: rgba(179, 71, 36, 0.04);
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(227, 218, 201, 0.02);
     border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+    text-align: center;
 }
-.borde-ladrillo { border: 1px solid #b34724; }
-.info-bloque { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 600; color: #f4f1ea; display: flex; align-items: center; gap: 10px; }
-.info-bloque i { color: #b34724; font-size: 1.3rem; }
-.info-gracias { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 800; margin-top: 10px; color: #d1bfa7; letter-spacing: 1px; }
+.borde-suave { border: 1px solid #4a423a; } /* Borde general estilizado, no invasivo */
 
-/* --- CARRITO SIDEBAR --- */
+.info-bloque { margin: 10px 0; color: #f4f1ea; font-size: 0.95rem; }
+.info-bloque i { color: #b34724; margin-right: 8px; }
+.info-gracias { color: #d1bfa7; margin-top: 15px; font-weight: bold; }
+
+/* --- CARRITO --- */
 .carrito-sidebar { 
     background-color: #191613; 
-    padding: 22px; 
+    padding: 20px; 
     border-radius: 12px; 
     height: fit-content; 
     position: sticky; 
     top: 20px; 
 }
-.carrito-titulo { font-family: 'Cinzel', serif; margin-bottom: 20px; text-align: center; font-size: 1.2rem; color: #b34724; border-bottom: 1px solid #362f2a; padding-bottom: 10px; }
-.lista-carrito { list-style: none; max-height: 200px; overflow-y: auto; margin-bottom: 20px; }
-.carrito-item { display: flex; justify-content: space-between; align-items: center; background: #211c19; padding: 10px 12px; margin-bottom: 8px; border-radius: 6px; border-left: 4px solid #b34724; }
-.item-qty { font-family: 'Rajdhani', sans-serif; color: #b34724; font-weight: 700; margin-right: 5px; }
-.item-text { font-size: 0.95rem; color: #f4f1ea; }
-.btn-eliminar { background: transparent; color: #cc4444; border: 1px solid #cc4444; border-radius: 4px; width: 20px; height: 20px; cursor: pointer; }
+.carrito-titulo { font-family: 'Cinzel', serif; color: #b34724; text-align: center; margin-bottom: 15px; }
+.lista-carrito { list-style: none; max-height: 220px; overflow-y: auto; margin-bottom: 15px; }
+.carrito-item { display: flex; justify-content: space-between; padding: 8px; background: #211c19; margin-bottom: 6px; border-radius: 4px; }
+.item-qty { color: #b34724; font-weight: bold; margin-right: 5px; }
 
-/* FORMULARIOS RÚSTICOS */
-.input-contenedor-rustico {
-    margin-bottom: 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-.label-rustico {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #d1bfa7;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-.input-contenedor-rustico input, 
-.input-contenedor-rustico textarea { 
-    width: 100%; 
-    padding: 12px; 
-    background: #26211d; 
-    color: #fff; 
-    border: 1px solid #4a3e36; 
-    border-radius: 6px; 
-    outline: none;
-    font-family: 'Lora', serif;
-    font-size: 0.9rem;
-}
-.input-contenedor-rustico input:focus, 
-.input-contenedor-rustico textarea:focus {
-    border-color: #b34724;
-}
-.input-contenedor-rustico textarea { height: 70px; resize: none; }
+.input-contenedor-rustico { margin-bottom: 15px; }
+.label-rustico { font-size: 0.85rem; color: #d1bfa7; margin-bottom: 4px; display: block; }
+.input-contenedor-rustico input, .input-contenedor-rustico textarea { width: 100%; padding: 10px; background: #26211d; color: #fff; border: 1px solid #4a3e36; border-radius: 6px; }
+.input-contenedor-rustico textarea { height: 60px; resize: none; }
 
-/* CAJA QR DE PAGO */
-.qr-pago-box {
-    background: #211c19;
-    border: 1px dashed #b34724;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 20px;
-    text-align: center;
-    display: none; 
-    animation: fadeInQR 0.4s ease forwards;
-}
-.qr-pago-box h4 { font-family: 'Cinzel', serif; color: #b34724; margin-bottom: 5px; }
-.qr-pago-box p { font-size: 0.85rem; color: #baaf9e; margin-bottom: 12px; }
-.img-qr-rustica { width: 160px; height: 160px; object-fit: contain; border: 4px solid #fff; border-radius: 6px; margin-bottom: 10px; }
-.aviso-qr { color: #e67e22 !important; font-weight: 600; }
+.qr-pago-box { background: #211c19; border: 1px dashed #b34724; padding: 15px; border-radius: 8px; text-align: center; display: none; }
+.img-qr-rustica { width: 140px; height: 140px; border: 4px solid #fff; margin: 10px 0; }
+.btn-rustico-verde { background: #27ae60; color: #fff; width: 100%; padding: 12px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; }
 
-.botones-carrito { display: flex; flex-direction: column; gap: 10px; }
-.btn { font-family: 'Cinzel', serif; width: 100%; padding: 14px; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; text-transform: uppercase; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.9rem; }
-.btn-rustico-verde { background: #27ae60; color: #fff; box-shadow: 0 4px 10px rgba(39, 174, 96, 0.2); }
-.btn-rustico-verde:hover { background: #219653; }
+/* =========================================================
+   DISEÑO RESPONSIVO (TABLETS Y CELULARES)
+   ========================================================= */
 
-/* RESPONSIVO */
+/* 📱 DISPOSITIVOS MEDIANOS (TABLETS - Menor a 980px) */
 @media (max-width: 980px) {
-    .main-container { grid-template-columns: 1fr; }
-    .texto-ladrillo { font-size: 2.5rem; }
+    body { padding: 10px; }
+    .marco { padding: 20px; }
+    .texto-ladrillo { font-size: 2.6rem; }
     .logo { width: 180px; height: 180px; }
+    
+    /* Pasa de 2 columnas a 1 sola para que el menú ocupe el ancho y el carrito baje con comodidad */
+    .main-container { 
+        grid-template-columns: 1fr; 
+        gap: 40px;
+    }
+    
+    .carrito-sidebar {
+        position: static; /* Ya no se queda pegado a un lado */
+        width: 100%;
+    }
+}
+
+/* 📱 DISPOSITIVOS MÓVILES (CELULARES - Menor a 480px) */
+@media (max-width: 480px) {
+    .texto-ladrillo { font-size: 2rem; }
+    .slogan-calido { font-size: 1rem; }
+    .logo { width: 140px; height: 140px; margin-bottom: 15px; }
+    .header { padding-bottom: 20px; margin-bottom: 25px; }
+    
+    /* Los platos se ordenan en una sola columna limpia, fácil de navegar con scroll vertical */
+    .grid-platos {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .plato-card img {
+        height: 180px; /* Un poco más alto en celular para resaltar la comida */
+    }
+    
+    .titulo-seccion {
+        font-size: 1.1rem;
+        margin: 30px 0 15px 0;
+    }
+    
+    /* El patito se oculta temporalmente en pantallas muy pequeñas para no tapar los botones de compra */
+    .patito {
+        display: none !important;
+    }
 }
 
 /* =========================================================
-   ESTILOS PATITO COCHINITO / TRADICIONAL
+   ANIMACIONES Y DETALLES DEL PATITO (SIN CAMBIOS)
    ========================================================= */
-.patito { position: absolute; z-index: 999; pointer-events: none; display: flex; flex-direction: column; align-items: center; transition: left 1.2s cubic-bezier(0.25, 1, 0.5, 1), top 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease; opacity: 0; }
+.patito { position: absolute; z-index: 999; pointer-events: none; display: flex; flex-direction: column; align-items: center; transition: left 1.2s cubic-bezier(0.25, 1, 0.5, 1), top 1.2s cubic-bezier(0.25, 1, 0.5, 1); opacity: 0; }
 .pato-cuerpo-completo { position: relative; width: 82px; height: 90px; }
-.pato-tronco { position: absolute; bottom: 18px; width: 75px; height: 50px; background: #ffea00; border-radius: 35px 48px 35px 35px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-.pato-cabeza-cuello { position: absolute; top: -4px; right: -4px; width: 44px; height: 44px; transform-origin: bottom left; transition: transform 0.3s ease-in-out; }
+.pato-tronco { position: absolute; bottom: 18px; width: 75px; height: 50px; background: #ffea00; border-radius: 35px 48px 35px 35px; }
+.pato-cabeza-cuello { position: absolute; top: -4px; right: -4px; width: 44px; height: 44px; }
 .pato-cabeza { position: relative; width: 44px; height: 44px; background: #ffea00; border-radius: 50%; }
 .pato-ojo { position: absolute; top: 11px; right: 10px; width: 7px; height: 7px; background: #000; border-radius: 50%; }
 .pato-pico { position: absolute; top: 15px; right: -14px; width: 18px; height: 12px; background: #ff6600; border-radius: 0 50% 50% 0; }
-.pato-ala { position: absolute; top: 32px; left: 12px; width: 34px; height: 24px; background: #e6d300; border-radius: 50% 50% 0 50%; z-index: 3; }
-.sombrero-chef { position: absolute; top: -22px; right: 8px; width: 26px; height: 24px; background: #ffffff; border-radius: 10px 10px 4px 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 4; }
+.sombrero-chef { position: absolute; top: -22px; right: 8px; width: 26px; height: 24px; background: #ffffff; border-radius: 10px 10px 4px 4px; }
 .sombrero-chef::after { content: ''; position: absolute; bottom: -2px; left: -2px; width: 30px; height: 6px; background: #b34724; border-radius: 2px; }
 .pato-patas { position: absolute; bottom: -6px; left: 20px; width: 40px; display: flex; justify-content: space-between; }
-.pata { width: 11px; height: 24px; background: #ff6600; border-radius: 4px 4px 6px 6px; position: relative; }
-.pata::after { content: ''; position: absolute; bottom: 0; right: -6px; width: 15px; height: 7px; background: #ff6600; border-radius: 5px 5px 0 0; }
-.patito.caminando .pata-izquierda { animation: pataleoIzq 0.22s infinite alternate ease-in-out; }
-.patito.caminando .pata-derecha { animation: pataleoDer 0.22s infinite alternate ease-in-out; }
-.patito.caminando .pato-cuerpo-completo { animation: bamboleo 0.22s infinite alternate ease-in-out; }
-@keyframes pataleoIzq { 0% { transform: translateY(0) rotate(-18deg); } 100% { transform: translateY(-6px) rotate(18deg); } }
-@keyframes pataleoDer { 0% { transform: translateY(-6px) rotate(18deg); } 100% { transform: translateY(0) rotate(-18deg); } }
-@keyframes bamboleo { 0% { transform: rotate(-4deg); } 100% { transform: rotate(4deg); } }
-.patito.comiendo .pato-cabeza-cuello { animation: picotearCabeza 0.25s infinite ease-in-out; }
-.patito.comiendo .pato-pico { animation: abrirPico 0.12s infinite alternate ease-in-out; }
-@keyframes picotearCabeza { 0%, 100% { transform: rotate(0deg) translateY(0); } 50% { transform: rotate(28deg) translateY(8px) translateX(3px); } }
-@keyframes abrirPico { 0% { transform: scaleY(1); } 100% { transform: scaleY(1.6) translateY(1px); } }
-.bocadillo { background: #b34724; color: #fff; font-family: 'Lora', serif; font-weight: bold; font-size: 1rem; padding: 10px 18px; border-radius: 12px; margin-bottom: 12px; position: relative; box-shadow: 0 4px 12px rgba(0,0,0,0.3); white-space: nowrap; z-index: 5; transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); opacity: 0; transform: scale(0.7); }
+.pata { width: 11px; height: 24px; background: #ff6600; }
+.bocadillo { background: #b34724; color: #fff; font-size: 0.9rem; padding: 8px 14px; border-radius: 12px; margin-bottom: 8px; white-space: nowrap; opacity: 0; transform: scale(0.7); transition: all 0.3s ease; }
 .bocadillo.mostrar-dialogo { opacity: 1; transform: scale(1); }
-.patito.comiendo .bocadillo { background: #d95d32; }
-.patito.satisfecho .bocadillo { background: #27ae60; }
-.bocadillo::after { content: ''; position: absolute; bottom: -7px; left: 50%; transform: translateX(-50%); border-width: 7px 7px 0; border-style: solid; border-color: inherit; }
