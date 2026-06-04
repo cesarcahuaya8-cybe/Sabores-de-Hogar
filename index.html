@@ -8,18 +8,17 @@
     <!-- FUENTES ESTILO GÓTICO ELEGANTE Y LEGIBLE -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Importamos fuentes góticas/medievales de alta legibilidad -->
     <link href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@700;900&family=Rajdhani:wght@600;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
     
     <!-- Librería de Iconos -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     
-    <!-- ENLACE DIRECTO AL CSS CORREGIDO -->
+    <!-- ENLACE DIRECTO AL CSS -->
     <link rel="stylesheet" href="./estilo.css">
 </head>
 <body>
 
-    <!-- EL PATITO CHEF GIGANTE -->
+    <!-- PERSONAJE 1: EL PATITO CHEF -->
     <div id="patito-guia" class="patito">
         <div class="bocadillo" id="bocadillo-pato">¡Hola! 👋</div>
         <div class="pato-cuerpo-completo">
@@ -33,14 +32,33 @@
             <div class="pato-ala"></div>
             <div class="pato-tronco"></div>
             <div class="pato-patas">
-                <div class="pata pata-izquierda"></div>
-                <div class="pata pata-derecha"></div>
+                <div class="pata pata-izq"></div>
+                <div class="pata pata-der"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PERSONAJE 2: EL POLLO RIVAL (NINJA) -->
+    <div id="pollo-rival" class="pollo">
+        <div class="bocadillo-pollo" id="bocadillo-pollito">¡El menú es mío! 🥷</div>
+        <div class="pollo-cuerpo-completo">
+            <div class="cresta-pollo"></div>
+            <div class="pollo-cabeza">
+                <div class="pato-ojo"></div>
+                <div class="pico-pollo"></div>
+            </div>
+            <div class="bandana-ninja"></div>
+            <div class="pollo-tronco"></div>
+            <div class="pollo-ala"></div>
+            <div class="pollo-patas">
+                <div class="pata-p pata-izq"></div>
+                <div class="pata-p pata-der"></div>
             </div>
         </div>
     </div>
 
     <div class="marco">
-        <!-- LOGO / HEADER (Borde claro y sutil) -->
+        <!-- LOGO / HEADER -->
         <header class="header">
             <img src="logo.jpeg" alt="Logo Sabores de Hogar" class="logo">
             <h1 class="texto-ladrillo">Sabores de Hogar</h1>
@@ -52,80 +70,48 @@
             
             <!-- SECCIÓN DEL MENÚ -->
             <main class="left-menu">
-                
-                <!-- 1. ESPECIALES DE CHANCHO Y POLLO -->
                 <h2 class="titulo-seccion">🐷 Especiales de Chancho y Pollo</h2>
                 <div class="grid-platos">
-                    <div class="plato-card">
+                    <div class="plato-card" id="card-chicharron-chancho">
                         <img src="1.png" alt="Chicharrón de Chancho">
                         <div class="plato-info">
                             <span class="plato-name">Chicharrón de Chancho</span>
-                            <button class="btn-agregar" onclick="add('Chicharrón de Chancho')"><i class="ri-add-circle-fill"></i></button>
+                            <button class="btn-agregar" onclick="add('Chicharrón de Chancho', 'card-chicharron-chancho')"><i class="ri-add-circle-fill"></i></button>
                         </div>
                     </div>
-                    <div class="plato-card">
+                    <div class="plato-card" id="card-chicharron-pollo">
                         <img src="2.png" alt="Chicharrón de Pollo">
                         <div class="plato-info">
                             <span class="plato-name">Chicharrón de Pollo</span>
-                            <button class="btn-agregar" onclick="add('Chicharrón de Pollo')"><i class="ri-add-circle-fill"></i></button>
+                            <button class="btn-agregar" onclick="add('Chicharrón de Pollo', 'card-chicharron-pollo')"><i class="ri-add-circle-fill"></i></button>
                         </div>
                     </div>
-                    <div class="plato-card">
+                    <div class="plato-card" id="card-lechon-chancho">
                         <img src="3.png" alt="Lechón de Chancho">
                         <div class="plato-info">
                             <span class="plato-name">Lechón de Chancho</span>
-                            <button class="btn-agregar" onclick="add('Lechón de Chancho')"><i class="ri-add-circle-fill"></i></button>
+                            <button class="btn-agregar" onclick="add('Lechón de Chancho', 'card-lechon-chancho')"><i class="ri-add-circle-fill"></i></button>
                         </div>
                     </div>
-                    <div class="plato-card">
+                    <div class="plato-card" id="card-lechon-pollo">
                         <img src="4.png" alt="Lechón de Pollo">
                         <div class="plato-info">
                             <span class="plato-name">Lechón de Pollo</span>
-                            <button class="btn-agregar" onclick="add('Lechón de Pollo')"><i class="ri-add-circle-fill"></i></button>
-                        </div>
-                    </div>
-                    <div class="plato-card">
-                        <img src="5.png" alt="Fricasé de Pollo">
-                        <div class="plato-info">
-                            <span class="plato-name">Fricasé de Pollo</span>
-                            <button class="btn-agregar" onclick="add('Fricasé de Pollo')"><i class="ri-add-circle-fill"></i></button>
-                        </div>
-                    </div>
-                    <div class="plato-card">
-                        <img src="6.png" alt="Pollo a la Olla">
-                        <div class="plato-info">
-                            <span class="plato-name">Pollo a la Olla</span>
-                            <button class="btn-agregar" onclick="add('Pollo a la Olla')"><i class="ri-add-circle-fill"></i></button>
+                            <button class="btn-agregar" onclick="add('Lechón de Pollo', 'card-lechon-pollo')"><i class="ri-add-circle-fill"></i></button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 2. ESPECIALES TRADICIONALES -->
                 <h2 class="titulo-seccion">🌵 Especiales Tradicionales</h2>
                 <div class="grid-platos">
-                    <div class="plato-card">
+                    <div class="plato-card" id="card-chicharron-llama">
                         <img src="2.png" alt="Chicharrón de Llama">
                         <div class="plato-info">
                             <span class="plato-name">Chicharrón de Llama</span>
-                            <button class="btn-agregar" onclick="add('Chicharrón de Llama')"><i class="ri-add-circle-fill"></i></button>
-                        </div>
-                    </div>
-                    <div class="plato-card">
-                        <img src="3.png" alt="Asado a la Olla">
-                        <div class="plato-info">
-                            <span class="plato-name">Asado a la Olla</span>
-                            <button class="btn-agregar" onclick="add('Asado a la Olla')"><i class="ri-add-circle-fill"></i></button>
+                            <button class="btn-agregar" onclick="add('Chicharrón de Llama', 'card-chicharron-llama')"><i class="ri-add-circle-fill"></i></button>
                         </div>
                     </div>
                 </div>
-
-                <!-- SECCIÓN DE SEÑALÉTICAS -->
-                <section class="seccion-info borde-suave">
-                    <div class="info-bloque"><i class="ri-takeaway-fill"></i> ¡Solo entregas a Domicilio!</div>
-                    <div class="info-bloque"><i class="ri-qr-code-line"></i> Escanea el QR al confirmar tu pedido</div>
-                    <div class="info-gracias">✨ Gracias por tu preferencia ✨</div>
-                </section>
-                
             </main>
 
             <!-- SECCIÓN LATERAL: CARRITO -->
@@ -133,33 +119,21 @@
                 <h3 class="carrito-titulo">🛒 Tu Pedido</h3>
                 <ul id="lista" class="lista-carrito"></ul>
                 
-                <!-- CAMPOS DE ENVÍO -->
                 <div class="input-contenedor-rustico">
-                    <label class="label-rustico"><i class="ri-map-pin-2-fill"></i> Dirección de tu Domicilio:</label>
+                    <label class="label-rustico"><i class="ri-map-pin-2-fill"></i> Dirección:</label>
                     <input type="text" id="direccion-envio" placeholder="Ej: Av. Ballivián #123">
                 </div>
 
-                <div class="input-contenedor-rustico">
-                    <label class="label-rustico"><i class="ri-chat-3-fill"></i> Notas Adicionales (Opcional):</label>
-                    <textarea id="nota" placeholder="Ej: sin picante..."></textarea>
-                </div>
-
-                <!-- SECCIÓN DEL MODAL QR -->
-                <div id="seccion-qr-pago" class="qr-pago-box">
+                <div class="qr-pago-box">
                     <h4>💳 Realiza tu Pago</h4>
-                    <p>Escanea este QR para pagar mediante transferencia:</p>
-                    <img src="qr-pago.png" alt="Código QR de Pago" class="img-qr-rustica">
-                    <p class="aviso-qr">⚠️ Envía el comprobante de pago al chat de WhatsApp.</p>
+                    <img src="qr-pago.jpeg" alt="QR" class="img-qr-rustica">
                 </div>
 
-                <div class="botones-carrito">
-                    <button class="btn enviar btn-rustico-verde" onclick="enviarPedido()"><i class="ri-whatsapp-line"></i> Enviar Pedido e Ir al Pago</button>
-                </div>
+                <button class="btn-rustico-verde" onclick="enviarPedido()"><i class="ri-whatsapp-line"></i> Enviar Pedido</button>
             </aside>
-
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
