@@ -34,7 +34,6 @@ function mostrar() {
     }
 }
 
-/* FUNCIÓN DE ENVÍO CON UBICACIÓN Y QR DINÁMICO */
 function enviarPedido() {
     if (pedido.length === 0) {
         alert("¡Tu carrito está vacío! Añade deliciosos platos primero.");
@@ -71,9 +70,7 @@ function enviarPedido() {
     }, 1500);
 }
 
-/* =========================================================
-   LÓGICA DE MOVIMIENTO E INTERACCIÓN DEL PATITO
-   ========================================================= */
+/* --- MOVIMIENTO DEL PATITO ADAPTADO --- */
 window.addEventListener('DOMContentLoaded', () => {
     const pato = document.getElementById('patito-guia');
     const bocadillo = document.getElementById('bocadillo-pato');
@@ -81,27 +78,23 @@ window.addEventListener('DOMContentLoaded', () => {
     const frasesDeCamino = [
         "¿Cómo estás? 😊",
         "¿Ya comiste? 👀",
-        "¿Creo que te había visto antes? 🤔",
         "¡Qué lindo verte por aquí! ✨",
         "¿Qué se te antoja hoy? 👨‍🍳",
-        "¿Tienes mucha hambre? 🦆",
-        "¡Mira lo que encontré! 🚀"
+        "¿Tienes mucha hambre? 🦆"
     ];
 
     const frasesComiendo = [
         "¡ÑAM, ÑAM! 😋",
         "*Crunsh, crunsh* 🥖",
         "¡Está riquísimo! 🤤",
-        "¡CHOMP, CHOMP! 🐷",
         "¡Uff, de locos! 🔥"
     ];
 
     const frasesSatisfecho = [
         "¡SÚPER RECOMENDADO! 👍",
-        "¡1000/10 DE DELICIA! ⭐",
+        "¡10/10 de sabor! ⭐",
         "¡Joyita de plato! 💎",
-        "¡Pídete este ya! 🛒",
-        "¡Santo cielo, qué rico! 😭"
+        "¡Pídete este ya! 🛒"
     ];
 
     function moverPatitoAUnPlato() {
