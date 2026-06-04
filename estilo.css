@@ -1,11 +1,11 @@
 /* =========================================================
-   1. CONFIGURACIÓN GENERAL Y FUENTES (ESTILO RÚSTICO HOGAREÑO)
+   1. CONFIGURACIÓN GENERAL Y FUENTES (MEDIEVAL / GÓTICO LEGIBLE)
    ========================================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Lora', serif;
+    font-family: 'Almendra', serif;
 }
 
 body {
@@ -31,34 +31,37 @@ body {
 }
 
 /* =========================================================
-   2. TEXTOS Y ENCABEZADO (TONOS LADRILLO CÁLIDOS)
+   2. TEXTOS Y ENCABEZADO (ESTILO GÓTICO REFINADO)
    ========================================================= */
 .texto-ladrillo {
-    font-family: 'Cinzel', serif !important;
-    font-weight: 800;
-    font-size: 3.4rem;
+    font-family: 'UnifrakturMaguntia', cursive !important;
+    font-size: 4.5rem; 
+    font-weight: 400;
     color: #b34724; 
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     margin-bottom: 5px;
     text-align: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 
 .slogan-calido {
+    font-family: 'Almendra', serif;
     font-style: italic;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #d1bfa7; 
     text-align: center;
 }
 
 .titulo-seccion {
-    font-family: 'Cinzel', serif !important;
-    font-weight: 600;
+    font-family: 'Cinzel Decorative', serif !important;
+    font-weight: 700;
     color: #d1bfa7;
     border-bottom: 2px solid #b34724; 
     padding-bottom: 8px;
     margin: 40px 0 20px 0;
     text-transform: uppercase;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
 }
 
 /* --- LOGO DE 240PX CON BORDE FINO CREMA --- */
@@ -127,8 +130,9 @@ body {
 }
 
 .plato-name {
-    font-size: 1rem;
-    font-weight: 600;
+    font-family: 'Almendra', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
 }
 
 .plato-card:hover {
@@ -156,9 +160,9 @@ body {
 }
 .borde-suave { border: 1px solid #4a423a; }
 
-.info-bloque { margin: 10px 0; color: #f4f1ea; font-size: 0.95rem; }
+.info-bloque { margin: 10px 0; color: #f4f1ea; font-size: 1rem; }
 .info-bloque i { color: #b34724; margin-right: 8px; }
-.info-gracias { color: #d1bfa7; margin-top: 15px; font-weight: bold; }
+.info-gracias { font-family: 'Cinzel Decorative', serif; color: #d1bfa7; margin-top: 15px; font-weight: bold; }
 
 /* =========================================================
    4. SECCIÓN LATERAL DEL CARRITO DE COMPRAS
@@ -171,19 +175,28 @@ body {
     position: sticky; 
     top: 20px; 
 }
-.carrito-titulo { font-family: 'Cinzel', serif; color: #b34724; text-align: center; margin-bottom: 15px; }
+.carrito-titulo { font-family: 'Cinzel Decorative', serif; color: #b34724; text-align: center; margin-bottom: 15px; font-size: 1.2rem; }
 .lista-carrito { list-style: none; max-height: 220px; overflow-y: auto; margin-bottom: 15px; }
 .carrito-item { display: flex; justify-content: space-between; padding: 8px; background: #211c19; margin-bottom: 6px; border-radius: 4px; }
 .item-qty { color: #b34724; font-weight: bold; margin-right: 5px; }
 
 .input-contenedor-rustico { margin-bottom: 15px; }
-.label-rustico { font-size: 0.85rem; color: #d1bfa7; margin-bottom: 4px; display: block; }
-.input-contenedor-rustico input, .input-contenedor-rustico textarea { width: 100%; padding: 10px; background: #26211d; color: #fff; border: 1px solid #4a3e36; border-radius: 6px; }
+.label-rustico { font-size: 0.95rem; color: #d1bfa7; margin-bottom: 4px; display: block; }
+.input-contenedor-rustico input, .input-contenedor-rustico textarea { width: 100%; padding: 10px; background: #26211d; color: #fff; border: 1px solid #4a3e36; border-radius: 6px; font-size: 1rem; }
 .input-contenedor-rustico textarea { height: 60px; resize: none; }
 
-.qr-pago-box { background: #211c19; border: 1px dashed #b34724; padding: 15px; border-radius: 8px; text-align: center; display: none; }
+/* RECUADRO DEL QR: CORREGIDO A "BLOCK" PARA QUE SE VEA SIEMPRE */
+.qr-pago-box { 
+    background: #211c19; 
+    border: 1px dashed #b34724; 
+    padding: 15px; 
+    border-radius: 8px; 
+    text-align: center; 
+    display: block; /* Cambiado de none a block */
+    margin-bottom: 15px;
+}
 .img-qr-rustica { width: 140px; height: 140px; border: 4px solid #fff; margin: 10px 0; }
-.btn-rustico-verde { background: #27ae60; color: #fff; width: 100%; padding: 12px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; }
+.btn-rustico-verde { background: #27ae60; color: #fff; width: 100%; padding: 12px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-family: sans-serif; }
 
 .plato-card.pato-target {
     border-color: #b34724 !important;
@@ -196,7 +209,7 @@ body {
 @media (max-width: 980px) {
     body { padding: 10px; }
     .marco { padding: 20px; }
-    .texto-ladrillo { font-size: 2.6rem; }
+    .texto-ladrillo { font-size: 3.4rem; }
     .logo { width: 180px; height: 180px; }
     .main-container { 
         grid-template-columns: 1fr; 
@@ -209,8 +222,8 @@ body {
 }
 
 @media (max-width: 480px) {
-    .texto-ladrillo { font-size: 2rem; }
-    .slogan-calido { font-size: 1rem; }
+    .texto-ladrillo { font-size: 2.5rem; }
+    .slogan-calido { font-size: 1.1rem; }
     .logo { width: 140px; height: 140px; margin-bottom: 15px; }
     .header { padding-bottom: 20px; margin-bottom: 25px; }
     .grid-platos {
@@ -278,53 +291,12 @@ body {
     border-radius: 50%; 
 }
 
-.pato-pico { 
-    position: absolute; 
-    top: 15px; 
-    right: -14px; 
-    width: 18px; 
-    height: 12px; 
-    background: #ff6600; 
-    border-radius: 0 50% 50% 0; 
-}
+.pato-pico { position: absolute; top: 15px; right: -14px; width: 18px; height: 12px; background: #ff6600; border-radius: 0 50% 50% 0; }
+.sombrero-chef { position: absolute; top: -22px; right: 8px; width: 26px; height: 24px; background: #ffffff; border-radius: 10px 10px 4px 4px; }
+.sombrero-chef::after { content: ''; position: absolute; bottom: -2px; left: -2px; width: 30px; height: 6px; background: #b34724; border-radius: 2px; }
+.pato-patas { position: absolute; bottom: -6px; left: 20px; width: 40px; display: flex; justify-content: space-between; }
+.pata { width: 11px; height: 24px; background: #ff6600; }
 
-.sombrero-chef { 
-    position: absolute; 
-    top: -22px; 
-    right: 8px; 
-    width: 26px; 
-    height: 24px; 
-    background: #ffffff; 
-    border-radius: 10px 10px 4px 4px; 
-}
-
-.sombrero-chef::after { 
-    content: ''; 
-    position: absolute; 
-    bottom: -2px; 
-    left: -2px; 
-    width: 30px; 
-    height: 6px; 
-    background: #b34724; 
-    border-radius: 2px; 
-}
-
-.pato-patas { 
-    position: absolute; 
-    bottom: -6px; 
-    left: 20px; 
-    width: 40px; 
-    display: flex; 
-    justify-content: space-between; 
-}
-
-.pata { 
-    width: 11px; 
-    height: 24px; 
-    background: #ff6600; 
-}
-
-/* CHAT NEÓN CYAN CON TEXTO NEGRO LEGIBLE */
 .bocadillo { 
     background: #00ffff; 
     color: #000000;      
@@ -344,28 +316,7 @@ body {
     letter-spacing: 0.5px;
 }
 
-.bocadillo.mostrar-dialogo { 
-    opacity: 1; 
-    transform: scale(1); 
-}
-
-.patito.comiendo .bocadillo { 
-    background: #ff00ff; 
-    box-shadow: 0 0 15px #ff00ff, 0 0 30px rgba(255, 0, 255, 0.5);
-}
-
-.patito.satisfecho .bocadillo { 
-    background: #39ff14; 
-    box-shadow: 0 0 15px #39ff14, 0 0 30px rgba(57, 255, 20, 0.5);
-}
-
-.bocadillo::after { 
-    content: ''; 
-    position: absolute; 
-    bottom: -8px; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    border-width: 8px 8px 0; 
-    border-style: solid; 
-    border-color: inherit; 
-}
+.bocadillo.mostrar-dialogo { opacity: 1; transform: scale(1); }
+.patito.comiendo .bocadillo { background: #ff00ff; box-shadow: 0 0 15px #ff00ff, 0 0 30px rgba(255, 0, 255, 0.5); }
+.patito.satisfecho .bocadillo { background: #39ff14; box-shadow: 0 0 15px #39ff14, 0 0 30px rgba(57, 255, 20, 0.5); }
+.bocadillo::after { content: ''; position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); border-width: 8px 8px 0; border-style: solid; border-color: inherit; }
