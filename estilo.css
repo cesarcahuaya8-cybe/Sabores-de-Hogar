@@ -72,7 +72,7 @@ body {
 }
 
 /* =========================================================
-   2. INTERFAZ GRÁFICA Y PLATOS
+   2. INTERFAZ GRÁFICA Y TARJETAS
    ========================================================= */
 .main-container { display: grid; grid-template-columns: 2.1fr 0.9fr; gap: 30px; }
 .grid-platos { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
@@ -101,35 +101,36 @@ body {
 .btn-rustico-verde { background: #27ae60; color: #fff; width: 100%; padding: 12px; border: none; font-weight: bold; cursor: pointer; }
 
 /* =========================================================
-   3. FÍSICAS DE MOVIMIENTO Y GUERREROS NEÓN (REALISMO)
+   3. ANIMACIONES REALISTAS DE LOS PERSONAJES
    ========================================================= */
 
-/* --- EL PATO GUERRERO (NEÓN AMARILLO) --- */
+/* --- EL PATO (NEÓN AMARILLO CON RESPIRACIÓN) --- */
 .patito { 
     position: absolute; z-index: 999; pointer-events: none; 
     display: flex; flex-direction: column; align-items: center; 
     opacity: 0; filter: drop-shadow(0 0 10px #ffea00); 
-    /* Transición con inercia elástica real */
-    transition: left 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), top 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    transition: left 0.8s cubic-bezier(0.25, 1, 0.5, 1), top 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    animation: respirarPato 2s infinite alternate ease-in-out;
 }
 .pato-cuerpo-completo { position: relative; width: 82px; height: 90px; }
 .pato-tronco { position: absolute; bottom: 18px; width: 75px; height: 50px; background: #ffea00; border-radius: 35px 48px 35px 35px; }
-.pato-cabeza-cuello { position: absolute; top: -4px; right: -4px; width: 44px; height: 44px; }
+.pato-cabeza-cuello { position: absolute; top: -4px; right: -4px; width: 44px; height: 44px; transform-origin: bottom center; }
 .pato-cabeza { position: relative; width: 44px; height: 44px; background: #ffea00; border-radius: 50%; }
 .pato-ojo { position: absolute; top: 11px; right: 10px; width: 7px; height: 7px; background: #000; border-radius: 50%; }
-.pato-pico { position: absolute; top: 15px; right: -14px; width: 18px; height: 12px; background: #ff6600; border-radius: 0 50% 50% 0; }
+.pato-pico { position: absolute; top: 15px; right: -14px; width: 18px; height: 12px; background: #ff6600; border-radius: 0 50% 50% 0; transform-origin: left center; }
 .sombrero-chef { position: absolute; top: -22px; right: 8px; width: 26px; height: 24px; background: #fff; border-radius: 10px 10px 4px 4px; }
 .sombrero-chef::after { content: ''; position: absolute; bottom: -2px; left: -2px; width: 30px; height: 6px; background: #b34724; border-radius: 2px; }
 .pato-patas { position: absolute; bottom: -6px; left: 20px; width: 40px; display: flex; justify-content: space-between; }
 .pata { width: 11px; height: 24px; background: #ff6600; }
 .pato-ala { position: absolute; top: 32px; left: 20px; width: 30px; height: 20px; background: #e6d200; border-radius: 50%; transform-origin: left top; }
 
-/* --- EL RIVAL: ZORRO FURTIVO (NEÓN MAGENTA) --- */
+/* --- EL ZORRO (NEÓN MAGENTA CON RESPIRACIÓN) --- */
 .enemigo-zorro {
     position: absolute; z-index: 998; pointer-events: none;
     display: flex; flex-direction: column; align-items: center;
     opacity: 0; filter: drop-shadow(0 0 10px #ff00ff);
-    transition: left 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), top 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: left 0.8s cubic-bezier(0.25, 1, 0.5, 1), top 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    animation: respirarZorro 1.8s infinite alternate ease-in-out;
 }
 .zorro-cuerpo-completo { position: relative; width: 90px; height: 90px; }
 .zorro-tronco { position: absolute; bottom: 18px; width: 80px; height: 45px; background: #ff00ff; border-radius: 25px 25px 35px 25px; }
@@ -137,11 +138,11 @@ body {
 .zorro-orejas { position: absolute; top: -10px; left: 2px; width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 18px solid #ff00ff; filter: drop-shadow(-15px 0 0 #ff00ff); }
 .zorro-ojo { position: absolute; top: 14px; left: 10px; width: 8px; height: 4px; background: #00ffff; border-radius: 50%; }
 .zorro-hocico { position: absolute; top: 18px; left: -12px; width: 18px; height: 14px; background: #b500b5; border-radius: 50% 0 0 50%; }
-.zorro-cola { position: absolute; right: -15px; bottom: 28px; width: 35px; height: 25px; background: #ff00ff; border-radius: 0 50% 50% 0; transform: rotate(-20px); transform-origin: left bottom; }
+.zorro-cola { position: absolute; right: -15px; bottom: 28px; width: 35px; height: 25px; background: #ff00ff; border-radius: 0 50% 50% 0; transform: rotate(-20deg); transform-origin: left bottom; }
 .zorro-patas { position: absolute; bottom: -5px; left: 15px; width: 50px; display: flex; justify-content: space-between; }
 .z-pata { width: 10px; height: 25px; background: #b500b5; }
 
-/* --- CHATS DE BATALLA --- */
+/* --- DIÁLOGOS --- */
 .bocadillo, .bocadillo-zorro { 
     font-family: 'Rajdhani', sans-serif !important; font-weight: 800; font-size: 1.1rem; 
     padding: 10px 16px; border-radius: 12px; margin-bottom: 12px; white-space: nowrap; 
@@ -151,60 +152,82 @@ body {
 .bocadillo-zorro { background: #ff00ff; color: #fff; box-shadow: 0 0 15px #ff00ff; }
 .bocadillo.mostrar-dialogo, .bocadillo-zorro.mostrar-dialogo { opacity: 1; transform: scale(1); }
 
-/* --- DINÁMICAS ANIMADAS DE COMBATE REAL --- */
+/* --- REGLAS MECÁNICAS DE MOVIMIENTO REALISTA --- */
 
-/* Correr con velocidad (inclinación hacia adelante) */
-.pato-corriendo { animation: inclinacionCarrera 0.3s infinite alternate; }
-.pato-corriendo .pato-patas .pata { animation: pataleo 0.2s infinite linear; }
+/* Movimientos Base Pasivos (Respiración en espera) */
+@keyframes respirarPato {
+    0% { transform: scaleY(1); }
+    100% { transform: scaleY(0.96) translateY(2px); }
+}
+@keyframes respirarZorro {
+    0% { transform: scaleY(1); }
+    100% { transform: scaleY(0.94) translateY(3px); }
+}
 
-/* Ataque: El pato embiste usando peso e impacto */
+/* Patas en movimiento asíncrono real */
+.pato-corriendo .pata-izquierda { animation: caminarPataIzq 0.2s infinite linear; }
+.pato-corriendo .pata-derecha { animation: caminarPataDer 0.2s infinite linear; }
+
+.zorro-corriendo .zp-izquierda { animation: caminarPataIzq 0.2s infinite linear; }
+.zorro-corriendo .zp-derecha { animation: caminarPataDer 0.2s infinite linear; }
+
+@keyframes caminarPataIzq {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-7px) rotate(20deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+@keyframes caminarPataDer {
+    0% { transform: translateY(-7px) rotate(-20deg); }
+    50% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-7px) rotate(-20deg); }
+}
+
+/* El zorro huyendo asustado (Inclinación de derrota) */
+.zorro-retirada { animation: huidaZorro 0.4s infinite alternate; }
+@keyframes huidaZorro {
+    0% { transform: scaleX(-1) rotate(15deg); }
+    100% { transform: scaleX(-1) rotate(25deg); }
+}
+
+/* El pato atacando con embestida real */
 .pato-atacando { animation: embestidaPato 0.5s ease-in-out; }
 .pato-atacando .pato-ala { animation: aleteoFeroz 0.1s infinite; }
 
-/* El zorro acecha agachado */
-.zorro-acechando { animation: zorroCazador 0.4s infinite alternate; }
-.zorro-acechando .zorro-cola { animation: movimientoCola 0.15s infinite alternate; }
-
-/* Efecto de daño por impacto real */
-.recibir-golpe { animation: flashImpacto 0.4s ease-out; border-color: #ff0000 !important; }
-
-@keyframes inclinacionCarrera {
-    0% { transform: rotate(5deg) scaleX(1); }
-    100% { transform: rotate(12deg) scaleX(1); }
-}
-@keyframes pataleo {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-6px) rotate(15deg); }
-    100% { transform: translateY(0); }
-}
-@keyframes zorroCazador {
-    0% { transform: scaleY(0.85) translateY(5px); }
-    100% { transform: scaleY(0.95) translateY(0); }
-}
-@keyframes movimientoCola {
-    0% { transform: rotate(-10deg); }
-    100% { transform: rotate(-35deg); }
-}
 @keyframes embestidaPato {
-    0% { transform: scale(1.1) translateX(0); }
-    30% { transform: scale(1.2) rotate(-15deg) translateX(-20px); } /* Carga el golpe */
-    50% { transform: scale(1.2) rotate(20deg) translateX(40px); filter: brightness(1.8); } /* Impacto */
-    100% { transform: scale(1) translateX(0); }
+    0% { transform: translateX(0); }
+    30% { transform: rotate(-20deg) translateX(-25px); }
+    50% { transform: rotate(15deg) translateX(45px); filter: brightness(1.8); }
+    100% { transform: translateX(0); }
 }
 @keyframes aleteoFeroz {
     0% { transform: rotate(0deg); }
-    100% { transform: rotate(-60deg); }
-}
-@keyframes flashImpacto {
-    0% { filter: brightness(3) saturate(2); transform: scale(0.95) rotate(-5deg); }
-    50% { filter: invert(0.2) sepia(1) saturate(5) hue-rotate(-50deg); }
-    100% { filter: brightness(1) saturate(1); transform: scale(1) rotate(0deg); }
+    100% { transform: rotate(-55deg); }
 }
 
-@media (max-width: 980px) {
-    .main-container { grid-template-columns: 1fr; }
-    .carrito-sidebar { position: static; }
+/* NUEVA ANIMACIÓN: EL PATO COMIENDO RÁPIDO */
+.pato-comiendo { animation: patoAgachadoComiendo 0.4s infinite alternate ease-in-out; }
+.pato-comiendo .pato-cabeza-cuello { animation: picotearCabeza 0.2s infinite ease-in-out; }
+.pato-comiendo .pato-pico { animation: masticarPico 0.1s infinite alternate; }
+
+@keyframes patoAgachadoComiendo {
+    0% { transform: rotate(15deg) translateY(2px); }
+    100% { transform: rotate(25deg) translateY(6px); }
 }
-@media (max-width: 480px) {
-    .patito, .enemigo-zorro { display: none !important; } /* Desactivados en pantallas muy pequeñas para no estorbar la lectura */
+@keyframes picotearCabeza {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(30deg) translateY(4px); }
 }
+@keyframes masticarPico {
+    0% { transform: scaleY(1); }
+    100% { transform: scaleY(0.4); }
+}
+
+/* Efecto de impacto visual */
+.recibir-golpe { animation: flashImpacto 0.4s ease-out; border-color: #ff0000 !important; }
+@keyframes flashImpacto {
+    0% { filter: brightness(3); transform: scale(0.9) rotate(-8deg); }
+    100% { filter: brightness(1); transform: scale(1) rotate(0deg); }
+}
+
+@media (max-width: 980px) { .main-container { grid-template-columns: 1fr; } .carrito-sidebar { position: static; } }
+@media (max-width: 480px) { .patito, .enemigo-zorro { display: none !important; } }
