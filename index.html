@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabores de Hogar - Neon Menu</title>
+    
+    <!-- FUENTES ULTRA MODERNAS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Librería de Iconos Interactivos -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <!-- EL PATITO CHEF GIGANTE Y CONVERSADOR -->
+    <div id="patito-guia" class="patito">
+        <div class="bocadillo" id="bocadillo-pato">¡Hola! 👋</div>
+        <div class="pato-cuerpo-completo">
+            <div class="sombrero-chef"></div>
+            <div class="pato-cabeza-cuello">
+                <div class="pato-cabeza">
+                    <div class="pato-ojo"></div>
+                    <div class="pato-pico"></div>
+                </div>
+            </div>
+            <div class="pato-ala"></div>
+            <div class="pato-tronco"></div>
+            <div class="pato-patas">
+                <div class="pata pata-izquierda"></div>
+                <div class="pata pata-derecha"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="marco">
+        <!-- LOGO / HEADER -->
+        <header class="header">
+            <img src="logo.jpeg" alt="Logo Sabores de Hogar" class="logo">
+            <h1 class="neon-text-orange">Sabores de Hogar</h1>
+            <p class="slogan neon-text-cyan">El sabor que reúne a la familia</p>
+        </header>
+
+        <!-- CONTENEDOR PRINCIPAL -->
+        <div class="main-container">
+            
+            <!-- SECCIÓN DEL MENÚ VISUAL -->
+            <main class="left-menu">
+                
+                <!-- 1. ESPECIALES DE CHANCHO Y POLLO -->
+                <h2 class="neon-text-beige">🐷 Especiales de Chancho y Pollo</h2>
+                <div class="grid-platos">
+                    <div class="plato-card">
+                        <img src="1.PNG" alt="Chicharrón de Chancho">
+                        <div class="plato-info">
+                            <span class="plato-name">Chicharrón de Chancho</span>
+                            <button class="btn-agregar" onclick="add('Chicharrón de Chancho')"><i class="ri-add-circle-fill"></i></button>
+                        </div>
+                    </div>
+                    <div class="plato-card">
+                        <img src="2.PNG" alt="Chicharrón de Pollo">
+                        <div class="plato-info">
+                            <span class="plato-name">Chicharrón de Pollo</span>
+                            <button class="btn-agregar" onclick="add('Chicharrón de Pollo')"><i class="ri-add-circle-fill"></i></button>
+                        </div>
+                    </div>
+                    <div class="plato-card">
+                        <img src="3.PNG" alt="Lechón de Chancho">
+                        <div class="plato-info">
+                            <span class="plato-name">Lechón de Chancho</span>
+                            <button class="btn-agregar" onclick="add('Lechón de Chancho')"><i class="ri-add-circle-fill"></i></button>
+                        </div>
+                    </div>
+                    <div class="plato-card">
+                        <img src="4.PNG" alt="Lechón de Pollo">
+                        <div class="plato-info">
+                            <span class="plato-name">Lechón de Pollo</span>
+                            <button class="btn-agregar" onclick="add('Lechón de Pollo')"><i class="ri-add-circle-fill"></i></button>
+                        </div>
+                    </div>
+                    <div class="plato-card">
+                        <img src="5.PNG" alt="Fricasé de Pollo">
+                        <div class="plato-info">
+                            <span class="plato-name">Fricasé de Pollo</span>
+                            <button class="btn-agregar" onclick="add('Fricasé de Pollo')"><i class="ri-add-circle-fill"></i></button>
+                        </div>
+                    </div>
+                    <div class="plato-card">
+                        <img src="6.PNG" alt="Pollo a la Olla">
+                        <div class="plato-info">
+                            <span class="plato-name">Pollo a la Olla</span>
+                            <button class="btn-agregar" onclick="add('Pollo a la Olla')"><i class="ri-add-circle-fill"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. ESPECIALES TRADICIONALES -->
+                <h2 class="neon-text-beige">🌵 Especiales Tradicionales</h2>
+                <div class="grid-platos">
+                    <div class="plato-card">
+                        <img src="2.PNG" alt="Chicharrón de Llama">
+                        <div class="plato-info">
+                            <span class="plato-name">Chicharrón de Llama</span>
+                            <button class="btn-agregar" onclick="add('Chicharrón de Llama')"><i class="ri-add-circle-fill"></i></button>
+                        </div>
+                    </div>
+                    <div class="plato-card">
+                        <img src="3.PNG" alt="Asado a la Olla">
+                        <div class="plato-info">
+                            <span class="plato-name">Asado a la Olla</span>
+                            <button class="btn-agregar" onclick="add('Asado a la Olla')"><i class="ri-add-circle-fill"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECCIÓN DE SEÑALÉTICAS -->
+                <section class="seccion-info neon-border-cyan">
+                    <div class="info-bloque"><i class="ri-takeaway-fill"></i> ¡Solo entregas a Domicilio!</div>
+                    <div class="info-bloque"><i class="ri-qr-code-line"></i> Escanea el QR al confirmar tu pedido</div>
+                    <div class="info-gracias">✨ Gracias por tu preferencia ✨</div>
+                </section>
+                
+            </main>
+
+            <!-- SECCIÓN LATERAL: CARRITO -->
+            <aside class="carrito-sidebar neon-border-orange">
+                <h3 class="neon-text-orange">🛒 Tu Pedido</h3>
+                <ul id="lista" class="lista-carrito"></ul>
+                
+                <!-- CAMPOS DE ENVÍO Y DATOS -->
+                <div class="input-contenedor-neon">
+                    <label class="label-neon"><i class="ri-map-pin-2-fill"></i> Dirección de tu Domicilio:</label>
+                    <input type="text" id="direccion-envio" placeholder="Ej: Av. Ballivián #123, Edif. Aurora Piso 3">
+                </div>
+
+                <div class="input-contenedor-neon">
+                    <label class="label-neon"><i class="ri-chat-3-fill"></i> Notas Adicionales (Opcional):</label>
+                    <textarea id="nota" placeholder="Ej: sin picante, doble aderezo..."></textarea>
+                </div>
+
+                <!-- SECCIÓN DEL MODAL QR -->
+                <div id="seccion-qr-pago" class="qr-pago-box">
+                    <h4 class="neon-text-cyan">💳 Realiza tu Pago</h4>
+                    <p>Escanea este QR para pagar mediante transferencia bancaria/móvil:</p>
+                    <img src="qr-pago.jpeg" alt="Código QR de Pago" class="img-qr-neon">
+                    <p class="aviso-qr">⚠️ Envía el comprobante de pago al chat de WhatsApp que se abrirá a continuación.</p>
+                </div>
+
+                <div class="botones-carrito">
+                    <button class="btn enviar neon-btn-green" onclick="enviarPedido()"><i class="ri-whatsapp-line"></i> Enviar Pedido e Ir al Pago</button>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
